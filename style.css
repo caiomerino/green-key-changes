@@ -1272,3 +1272,177 @@
   height: 32px;
   object-fit: contain;
 }
+
+/* ========================================
+   STRICTER STANDARDS AT A GLANCE
+   ======================================== */
+.stricter-category {
+  margin-bottom: var(--space-10);
+}
+.stricter-category:last-child {
+  margin-bottom: 0;
+}
+.stricter-category__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-divider);
+  color: var(--color-primary);
+}
+.stricter-category__header svg {
+  flex-shrink: 0;
+  display: inline-block;
+}
+.stricter-category__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+.stricter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+.stricter-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: box-shadow var(--transition-interactive), border-color var(--transition-interactive);
+}
+.stricter-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+.stricter-card__header {
+  margin-bottom: var(--space-4);
+}
+.stricter-card__label {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+.stricter-card__values {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+.stricter-card__was,
+.stricter-card__now {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.stricter-card__tag {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.stricter-card__was .stricter-card__tag {
+  color: var(--color-text-faint);
+}
+.stricter-card__now .stricter-card__tag {
+  color: var(--color-primary);
+}
+.stricter-card__was .stricter-card__val {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-surface-offset);
+  border-radius: var(--radius-sm);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--color-text-muted) 40%, transparent);
+}
+.stricter-card__now .stricter-card__val {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+}
+.stricter-card__arrow {
+  flex-shrink: 0;
+  color: var(--color-primary);
+  display: inline-block;
+}
+.stricter-card__note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .stricter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   TASK 2: LAYOUT & READABILITY FIXES
+   ======================================== */
+
+/* Panel summaries: better line-height and breathing room */
+.panel-summary {
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+}
+
+/* Panel headings: clear separation between sub-sections */
+.accordion-content .panel-heading {
+  margin-top: var(--space-8);
+}
+
+/* First panel-heading should not have extra top margin */
+.accordion-content .panel-heading:first-child {
+  margin-top: 0;
+}
+
+/* Section intros: breathing room */
+.section__intro {
+  margin-bottom: var(--space-8);
+}
+
+/* Table headers: left-aligned by default, status columns center */
+.data-table th {
+  text-align: left;
+}
+.data-table td:has(.badge),
+.data-table th:nth-child(3):has(+ th),
+.data-table td .badge {
+  vertical-align: middle;
+}
+
+/* Tooltip min font size */
+.tooltip-content {
+  font-size: max(var(--text-sm), 14px);
+}
+
+/* Table responsive overflow */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* ========================================
+   TASK 3: ATTRIBUTION LINK STYLING
+   ======================================== */
+.footer__perplexity a {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-text-muted) 40%, transparent);
+  text-underline-offset: 2px;
+  transition: color var(--transition-interactive), text-decoration-color var(--transition-interactive);
+}
+.footer__perplexity a:hover {
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
+}
