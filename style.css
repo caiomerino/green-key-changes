@@ -2018,3 +2018,288 @@
     min-width: 800px;
   }
 }
+
+/* ========================================
+   FIX: details-full hidden override
+   ======================================== */
+.details-full[hidden] {
+  display: none !important;
+}
+
+/* ========================================
+   REORGANISATION ICON
+   ======================================== */
+.reorg-icon {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  margin-left: 0.25rem;
+  vertical-align: super;
+  cursor: help;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.reorg-icon:hover {
+  opacity: 1;
+}
+
+/* ========================================
+   MERGED BADGE + ROWS
+   ======================================== */
+.change-badge--merged {
+  background: var(--color-accent);
+  color: #fff;
+}
+.merged-row {
+  background: color-mix(in srgb, var(--color-accent) 6%, transparent);
+}
+.merge-note {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+.data-table--merged {
+  opacity: 0.92;
+}
+
+/* ========================================
+   LEGACY REMOVED SECTION
+   ======================================== */
+.legacy-removed-section .accordion-trigger__title {
+  color: var(--color-text-muted);
+}
+.legacy-removed-section .accordion-subtitle {
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   PERCENTAGE BREAKDOWN LABELS
+   ======================================== */
+.breakdown-pct {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+/* Negative % = red-ish, positive = green */
+.breakdown-pct {
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+
+/* ========================================
+   IMPACT OVERVIEW CHART
+   ======================================== */
+.impact-chart-wrap {
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-8);
+}
+
+.chart-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.chart-legend {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.chart-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+.legend-dot--high { background: #e74c3c; }
+.legend-dot--medium { background: #f59e0b; }
+.legend-dot--low { background: var(--color-primary); }
+
+.stacked-bar-chart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 220px;
+  padding: 0 var(--space-2);
+  gap: var(--space-2);
+}
+
+.bar-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100px;
+}
+
+.bar-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 56px;
+  height: 180px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4px;
+  transition: opacity 0.2s;
+  position: relative;
+}
+.bar-seg--high { background: #e74c3c; }
+.bar-seg--medium { background: #f59e0b; }
+.bar-seg--low { background: var(--color-primary); }
+
+.bar-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.bar-seg:hover .bar-label,
+.bar-column:hover .bar-label {
+  opacity: 1;
+}
+.bar-seg:hover {
+  opacity: 0.85;
+}
+
+.bar-axis-label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+.bar-axis-sublabel {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Chart summary / % change row */
+.chart-summary-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.chart-insight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+}
+.chart-insight__value {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+.chart-insight__label {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Negative values in red-ish */
+.chart-insight__value:first-child {
+  /* Will be styled dynamically if needed */
+}
+
+/* ========================================
+   NUMBER CARD INDICATOR FIX
+   ======================================== */
+.number-card__indicator {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  line-height: 1;
+}
+.number-card {
+  position: relative;
+}
+.indicator--down {
+  background: color-mix(in srgb, #e74c3c 15%, transparent);
+  color: #e74c3c;
+}
+.indicator--up {
+  background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  color: var(--color-primary);
+}
+
+/* ========================================
+   MOBILE: CHART RESPONSIVE
+   ======================================== */
+@media (max-width: 640px) {
+  .stacked-bar-chart {
+    height: 180px;
+    gap: var(--space-1);
+  }
+  .bar-stack {
+    max-width: 36px;
+  }
+  .bar-axis-sublabel {
+    display: none;
+  }
+  .chart-summary-row {
+    gap: var(--space-2);
+  }
+  .chart-insight {
+    min-width: 70px;
+  }
+  .chart-insight__value {
+    font-size: var(--text-lg);
+  }
+  .chart-insight__label {
+    font-size: 0.6rem;
+  }
+}
+
+/* ========================================
+   MOBILE: BETTER TABLE EXPERIENCE
+   ======================================== */
+@media (max-width: 768px) {
+  .data-table--enriched td:first-child {
+    min-width: 180px;
+    max-width: 250px;
+  }
+  .data-table--enriched th,
+  .data-table--enriched td {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.8rem;
+  }
+}
