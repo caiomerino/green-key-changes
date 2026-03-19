@@ -359,6 +359,8 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5) var(--space-8);
+  flex: 1 1 0;
+  max-width: 260px;
   min-width: 160px;
   box-shadow: var(--shadow-sm);
 }
@@ -1055,8 +1057,12 @@
 }
 .terms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
+}
+/* When 10 items in 3-col grid: center the orphan on the last row */
+.terms-grid .term-card:last-child:nth-child(3n + 1) {
+  grid-column: 2;
 }
 .term-card {
   display: flex;
@@ -1104,12 +1110,23 @@
   padding: 2px 6px;
 }
 
+@media (max-width: 768px) {
+  .terms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .terms-grid .term-card:last-child:nth-child(3n + 1) {
+    grid-column: auto;
+  }
+}
 @media (max-width: 480px) {
   .key-terms {
     padding: var(--space-5);
   }
   .terms-grid {
     grid-template-columns: 1fr;
+  }
+  .terms-grid .term-card:last-child:nth-child(3n + 1) {
+    grid-column: auto;
   }
 }
 
