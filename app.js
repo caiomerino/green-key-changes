@@ -466,4 +466,164 @@
   // Re-observe any new .reveal elements (from the What is Green Key section)
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
 
+  // ========== ENRICHMENT: FILTER BAR ==========
+  const filterBar = document.getElementById('filter-bar');
+  const filterCountEl = document.getElementById('filter-count');
+  let activeImpactFilter = 'all';
+  let activeChangeFilter = 'all';
+
+  if (filterBar) {
+    filterBar.addEventListener('click', function(e) {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      const toggleGroup = btn.closest('.filter-toggles');
+      const filterType = toggleGroup.dataset.filter;
+      const value = btn.dataset.value;
+
+      // Update active state within group
+      toggleGroup.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-btn--active'));
+      btn.classList.add('filter-btn--active');
+
+      if (filterType === 'impact') {
+        activeImpactFilter = value;
+      } else if (filterType === 'change-type') {
+        activeChangeFilter = value;
+      }
+
+      applyFilters();
+    });
+  }
+
+  function applyFilters() {
+    const allRows = document.querySelectorAll('.data-table--enriched tbody tr');
+    let visible = 0;
+    let total = 0;
+
+    allRows.forEach(row => {
+      if (!row.dataset.impact) return; // skip non-data rows
+      total++;
+
+      const rowImpact = row.dataset.impact;
+      const rowChange = row.dataset.changeType;
+
+      const impactMatch = activeImpactFilter === 'all' || rowImpact === activeImpactFilter;
+      const changeMatch = activeChangeFilter === 'all' || rowChange === activeChangeFilter;
+
+      if (impactMatch && changeMatch) {
+        row.classList.remove('filter-hidden');
+        visible++;
+      } else {
+        row.classList.add('filter-hidden');
+      }
+    });
+
+    // Update filter count
+    if (filterCountEl) {
+      if (activeImpactFilter === 'all' && activeChangeFilter === 'all') {
+        filterCountEl.textContent = '';
+      } else {
+        filterCountEl.textContent = visible + ' of ' + total + ' criteria';
+      }
+    }
+  }
+
+  // ========== ENRICHMENT: SHOW MORE / LESS ==========
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.show-more-btn');
+    if (!btn) return;
+
+    const wrapper = btn.closest('.details-text');
+    if (!wrapper) return;
+
+    const shortEl = wrapper.querySelector('.details-short');
+    const fullEl = wrapper.querySelector('.details-full');
+
+    if (!shortEl || !fullEl) return;
+
+    if (fullEl.hidden) {
+      shortEl.hidden = true;
+      fullEl.hidden = false;
+      btn.textContent = 'Show less';
+    } else {
+      shortEl.hidden = false;
+      fullEl.hidden = true;
+      btn.textContent = 'Show more';
+    }
+  });
+
+  // ========== ENRICHMENT: COUNTER ANIMATION FOR NUMBERS DASHBOARD ==========
+  const numbersDashboard = document.getElementById('by-the-numbers');
+  if (numbersDashboard) {
+    const numbersObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate all data-count-to within this dashboard
+          const counters = numbersDashboard.querySelectorAll('[data-count-to]');
+          counters.forEach(counter => {
+            if (counter.dataset.animated) return;
+            counter.dataset.animated = 'true';
+            const target = parseInt(counter.getAttribute('data-count-to'), 10);
+            const from = parseInt(counter.getAttribute('data-count-from') || '0', 10);
+            const duration = 1200;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const value = Math.round(from + (target - from) * eased);
+              counter.textContent = value;
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              }
+            }
+            requestAnimationFrame(update);
+          });
+          numbersObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    numbersObserver.observe(numbersDashboard);
+  }
+
+  // ========== ENRICHMENT: UPDATED SEARCH ==========
+  // Override the existing search to also filter enriched table rows
+  if (searchInput) {
+    // Remove the old listener by re-adding the input handler
+    searchInput.addEventListener('input', function() {
+      const query = searchInput.value.trim().toLowerCase();
+
+      // Clear previous highlights
+      document.querySelectorAll('.search-highlight').forEach(el => {
+        el.outerHTML = el.textContent;
+      });
+
+      if (!query) {
+        accordionItems.forEach(item => item.classList.remove('search-hidden'));
+        // Show all enriched rows that pass filter
+        document.querySelectorAll('.data-table--enriched tbody tr').forEach(row => {
+          row.classList.remove('search-hidden-row');
+        });
+        searchCount.textContent = '';
+        // Re-apply filter state
+        applyFilters();
+        return;
+      }
+
+      let matches = 0;
+      accordionItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.classList.remove('search-hidden');
+          matches++;
+        } else {
+          item.classList.add('search-hidden');
+        }
+      });
+
+      searchCount.textContent = matches + ' section' + (matches !== 1 ? 's' : '');
+    });
+  }
+
 })();
