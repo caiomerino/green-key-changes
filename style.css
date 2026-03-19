@@ -4,11 +4,11 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Type Scale */
-  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
-  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
-  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  /* Type Scale — bumped for readability per brand guidelines */
+  --text-xs:   clamp(0.8125rem, 0.76rem + 0.25vw, 0.9375rem);
+  --text-sm:   clamp(0.9375rem, 0.88rem + 0.35vw, 1.0625rem);
+  --text-base: clamp(1.0625rem, 1rem    + 0.25vw, 1.1875rem);
+  --text-lg:   clamp(1.25rem,   1.1rem  + 0.75vw, 1.625rem);
   --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
   --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
 
@@ -42,83 +42,83 @@
   --content-default: 960px;
   --content-wide: 1200px;
 
-  /* Fonts */
-  --font-body: 'General Sans', 'Helvetica Neue', sans-serif;
-  --font-display: 'Cabinet Grotesk', 'General Sans', sans-serif;
+  /* Fonts — Lato is the official Green Key brand font */
+  --font-body: 'Lato', 'Arial', sans-serif;
+  --font-display: 'Lato', 'Arial', sans-serif;
 }
 
-/* --- Light Mode (Default) --- */
+/* --- Light Mode (Default) — Green Key Brand Palette --- */
 :root, [data-theme="light"] {
-  --color-bg: #FAFAF5;
+  --color-bg: #FAFDF8;
   --color-surface: #FFFFFF;
-  --color-surface-2: #F5F5EF;
-  --color-surface-offset: #EFEFE8;
-  --color-surface-dynamic: #E5E5DD;
-  --color-divider: #D4D4CC;
-  --color-border: #C4C4BB;
+  --color-surface-2: #F3F8F1;
+  --color-surface-offset: #EDF5EA;
+  --color-surface-dynamic: #E1EDD9;
+  --color-divider: #D0DEC8;
+  --color-border: #B8CDB0;
 
-  --color-text: #1A2E1A;
-  --color-text-muted: #5A6B5A;
-  --color-text-faint: #8A9A8A;
-  --color-text-inverse: #FAFAF5;
+  --color-text: #1A2B1A;
+  --color-text-muted: #4A6048;
+  --color-text-faint: #7A9278;
+  --color-text-inverse: #FAFDF8;
 
-  --color-primary: #1B5E3B;
-  --color-primary-hover: #15472E;
-  --color-primary-active: #0F3322;
-  --color-primary-light: #E8F5EC;
-  --color-primary-highlight: #D0E8D8;
+  --color-primary: #51AE32;
+  --color-primary-hover: #449326;
+  --color-primary-active: #387A1F;
+  --color-primary-light: #EDF7E8;
+  --color-primary-highlight: #D5EFC9;
 
-  --color-accent: #D4A853;
-  --color-accent-hover: #C29540;
-  --color-accent-light: #FDF6E8;
+  --color-accent: #0066CC;
+  --color-accent-hover: #0055AA;
+  --color-accent-light: #E8F2FC;
 
   --color-upgrade: #B45309;
   --color-upgrade-bg: #FEF3C7;
-  --color-downgrade: #1D4ED8;
-  --color-downgrade-bg: #DBEAFE;
+  --color-downgrade: #0066CC;
+  --color-downgrade-bg: #E8F2FC;
 
-  --color-badge-i: #1B5E3B;
-  --color-badge-i-bg: #D0E8D8;
+  --color-badge-i: #387A1F;
+  --color-badge-i-bg: #D5EFC9;
   --color-badge-g: #92400E;
   --color-badge-g-bg: #FEF3C7;
 
-  --shadow-sm: 0 1px 2px rgba(26, 46, 26, 0.06);
-  --shadow-md: 0 4px 12px rgba(26, 46, 26, 0.08);
-  --shadow-lg: 0 12px 32px rgba(26, 46, 26, 0.12);
+  --shadow-sm: 0 1px 2px rgba(26, 43, 26, 0.06);
+  --shadow-md: 0 4px 12px rgba(26, 43, 26, 0.08);
+  --shadow-lg: 0 12px 32px rgba(26, 43, 26, 0.12);
 }
 
-/* --- Dark Mode --- */
+/* --- Dark Mode — Green Key Brand Palette --- */
 [data-theme="dark"] {
-  --color-bg: #0F1A12;
-  --color-surface: #162018;
-  --color-surface-2: #1C2A1E;
-  --color-surface-offset: #1A251C;
-  --color-surface-dynamic: #243028;
-  --color-divider: #2A3A2C;
-  --color-border: #3A4A3C;
+  --color-bg: #0D1A0F;
+  --color-surface: #132016;
+  --color-surface-2: #182A1B;
+  --color-surface-offset: #162218;
+  --color-surface-dynamic: #1E3220;
+  --color-divider: #253E28;
+  --color-border: #305034;
 
-  --color-text: #D4E0D4;
-  --color-text-muted: #8AA08A;
-  --color-text-faint: #5A705A;
-  --color-text-inverse: #0F1A12;
+  --color-text: #D0E4CE;
+  --color-text-muted: #8AB088;
+  --color-text-faint: #5A785A;
+  --color-text-inverse: #0D1A0F;
 
-  --color-primary: #5BAA7A;
-  --color-primary-hover: #73BF90;
-  --color-primary-active: #4A9068;
-  --color-primary-light: #1C2E22;
-  --color-primary-highlight: #243828;
+  --color-primary: #6BC34E;
+  --color-primary-hover: #7DD060;
+  --color-primary-active: #5AAF3E;
+  --color-primary-light: #162A18;
+  --color-primary-highlight: #1E3820;
 
-  --color-accent: #E4C070;
-  --color-accent-hover: #F0D08A;
-  --color-accent-light: #2A2518;
+  --color-accent: #5AA0E6;
+  --color-accent-hover: #74B4F0;
+  --color-accent-light: #1A2840;
 
   --color-upgrade: #F59E0B;
   --color-upgrade-bg: #422006;
-  --color-downgrade: #60A5FA;
-  --color-downgrade-bg: #1E3A5F;
+  --color-downgrade: #5AA0E6;
+  --color-downgrade-bg: #1A2840;
 
-  --color-badge-i: #5BAA7A;
-  --color-badge-i-bg: #1C2E22;
+  --color-badge-i: #6BC34E;
+  --color-badge-i-bg: #1E3820;
   --color-badge-g: #E4C070;
   --color-badge-g-bg: #2A2518;
 
@@ -129,31 +129,31 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --color-bg: #0F1A12;
-    --color-surface: #162018;
-    --color-surface-2: #1C2A1E;
-    --color-surface-offset: #1A251C;
-    --color-surface-dynamic: #243028;
-    --color-divider: #2A3A2C;
-    --color-border: #3A4A3C;
-    --color-text: #D4E0D4;
-    --color-text-muted: #8AA08A;
-    --color-text-faint: #5A705A;
-    --color-text-inverse: #0F1A12;
-    --color-primary: #5BAA7A;
-    --color-primary-hover: #73BF90;
-    --color-primary-active: #4A9068;
-    --color-primary-light: #1C2E22;
-    --color-primary-highlight: #243828;
-    --color-accent: #E4C070;
-    --color-accent-hover: #F0D08A;
-    --color-accent-light: #2A2518;
+    --color-bg: #0D1A0F;
+    --color-surface: #132016;
+    --color-surface-2: #182A1B;
+    --color-surface-offset: #162218;
+    --color-surface-dynamic: #1E3220;
+    --color-divider: #253E28;
+    --color-border: #305034;
+    --color-text: #D0E4CE;
+    --color-text-muted: #8AB088;
+    --color-text-faint: #5A785A;
+    --color-text-inverse: #0D1A0F;
+    --color-primary: #6BC34E;
+    --color-primary-hover: #7DD060;
+    --color-primary-active: #5AAF3E;
+    --color-primary-light: #162A18;
+    --color-primary-highlight: #1E3820;
+    --color-accent: #5AA0E6;
+    --color-accent-hover: #74B4F0;
+    --color-accent-light: #1A2840;
     --color-upgrade: #F59E0B;
     --color-upgrade-bg: #422006;
-    --color-downgrade: #60A5FA;
-    --color-downgrade-bg: #1E3A5F;
-    --color-badge-i: #5BAA7A;
-    --color-badge-i-bg: #1C2E22;
+    --color-downgrade: #5AA0E6;
+    --color-downgrade-bg: #1A2840;
+    --color-badge-i: #6BC34E;
+    --color-badge-i-bg: #1E3820;
     --color-badge-g: #E4C070;
     --color-badge-g-bg: #2A2518;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -231,7 +231,7 @@
 }
 .nav-link {
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text-muted);
   text-decoration: none;
   padding: var(--space-1) 0;
@@ -335,7 +335,7 @@
 .hero__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 800;
+  font-weight: 900;
   color: var(--color-text);
   margin-bottom: var(--space-4);
   letter-spacing: -0.02em;
@@ -382,7 +382,7 @@
   color: var(--color-text-muted);
   max-width: 720px;
   margin-inline: auto;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .hero__intro strong {
   color: var(--color-text);
@@ -410,7 +410,7 @@
 .section__title {
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--color-text);
   margin-bottom: var(--space-4);
   letter-spacing: -0.01em;
@@ -420,7 +420,7 @@
   color: var(--color-text-muted);
   max-width: 720px;
   margin-bottom: var(--space-10);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .subsection-title {
   font-family: var(--font-display);
@@ -467,7 +467,7 @@
 .theme-card__desc {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 /* ========================================
@@ -490,7 +490,7 @@
 }
 .data-table {
   font-size: var(--text-sm);
-  white-space: nowrap;
+  white-space: normal;
 }
 .data-table th, .data-table td {
   padding: var(--space-3) var(--space-4);
@@ -499,7 +499,7 @@
 }
 .data-table th {
   background: var(--color-surface-offset);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
   font-size: var(--text-xs);
   text-transform: uppercase;
@@ -714,7 +714,7 @@
 .panel-summary {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: var(--space-6);
   max-width: none;
 }
@@ -907,7 +907,7 @@
   right: var(--space-4);
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-weight: 800;
+  font-weight: 900;
   color: var(--color-primary-highlight);
   line-height: 1;
 }
@@ -944,14 +944,7 @@
 }
 .footer__perplexity {
   font-size: var(--text-xs);
-}
-.footer__perplexity a {
   color: var(--color-text-muted);
-  text-decoration: none;
-}
-.footer__perplexity a:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
 }
 
 /* ========================================
@@ -1038,7 +1031,7 @@
 .intro-block__text {
   font-size: var(--text-base);
   color: var(--color-text-muted);
-  line-height: 1.8;
+  line-height: 1.75;
   margin-bottom: var(--space-4);
 }
 .intro-block__text strong {
@@ -1201,4 +1194,81 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ========================================
+   COMPARISON CARDS (replaces overflow table)
+   ======================================== */
+.comparison-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+.comparison-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  border-left: 4px solid var(--color-text-faint);
+}
+.comparison-card--new {
+  border-left-color: var(--color-primary);
+}
+.comparison-card__period {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 900;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+.comparison-card--new .comparison-card__period {
+  color: var(--color-primary);
+}
+.comparison-card__row {
+  margin-bottom: var(--space-3);
+}
+.comparison-card__label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-1);
+}
+.comparison-card__value {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+.comparison-card__value strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .comparison-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   HERO LOGO IMAGE
+   ======================================== */
+.hero__logo {
+  display: block;
+  width: 80px;
+  height: auto;
+  margin: 0 auto var(--space-6);
+  object-fit: contain;
+}
+
+/* ========================================
+   HEADER LOGO IMAGE
+   ======================================== */
+.header__logo img {
+  display: block;
+  width: 28px;
+  height: 32px;
+  object-fit: contain;
 }
