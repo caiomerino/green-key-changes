@@ -8,8 +8,8 @@
   'use strict';
 
   // ── Supabase config ──
-  const SUPABASE_URL = '__SUPABASE_URL__';
-  const SUPABASE_ANON_KEY = '__SUPABASE_ANON_KEY__';
+  const SUPABASE_URL = 'https://dlhegdwfioyhsmlkeolb.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsaGVnZHdmaW95aHNtbGtlb2xiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MjI3MDEsImV4cCI6MjA4ODk5ODcwMX0.V11lgE78svJsMpCStEEV0ogiwL2dkzAtf9HYSqZ0hxI';
 
   const STORAGE_KEY = 'gk_email_captured';
   const DELAY_MS = 30000; // 30 seconds
