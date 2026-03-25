@@ -2380,7 +2380,9 @@
   background: color-mix(in srgb, #d97706 6%, transparent);
   border: 1px solid color-mix(in srgb, #d97706 20%, transparent);
   border-radius: var(--radius-lg);
-  padding: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  max-width: 52rem;
+  margin: 0 auto;
 }
 .disclaimer__icon {
   flex-shrink: 0;
@@ -2389,9 +2391,10 @@
 }
 .disclaimer__text {
   font-size: 0.85rem;
-  line-height: 1.55;
+  line-height: 1.65;
   color: var(--color-text-muted);
   margin: 0;
+  text-align: left;
 }
 .disclaimer__text a {
   color: var(--color-primary);
@@ -2456,10 +2459,10 @@
 }
 
 .content-gate__card {
-  max-width: 540px;
+  max-width: 640px;
   width: 100%;
   text-align: center;
-  padding: var(--space-8) var(--space-7);
+  padding: var(--space-9) var(--space-8);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 16px;
@@ -2511,7 +2514,7 @@
 .content-gate__field {
   display: flex;
   gap: var(--space-2);
-  max-width: 440px;
+  max-width: 480px;
   margin: 0 auto;
 }
 
