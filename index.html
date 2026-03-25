@@ -363,6 +363,58 @@
   </div>
 </section>
 
+<!-- EMAIL GATE -->
+<div class="content-gate" id="content-gate">
+  <div class="content-gate__preview" id="gate-preview" aria-hidden="false">
+    <!-- Blurred teaser of gated content -->
+    <div class="content-gate__blur">
+      <div class="content-gate__teaser" aria-hidden="true">
+        <div class="container">
+          <h2 class="section__title" style="opacity:0.7">Certification Process Changes</h2>
+          <p style="opacity:0.5;max-width:48rem;margin:0 auto 2rem">The 2026–2031 update doesn't just change what properties are assessed on — it changes how certification works...</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;opacity:0.4">
+            <div style="background:var(--surface-2);border-radius:12px;padding:2rem;height:120px"></div>
+            <div style="background:var(--surface-2);border-radius:12px;padding:2rem;height:120px"></div>
+            <div style="background:var(--surface-2);border-radius:12px;padding:2rem;height:120px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gate overlay -->
+    <div class="content-gate__overlay">
+      <div class="content-gate__card">
+        <div class="content-gate__icon">
+          <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="var(--green-key)" stroke-width="2">
+            <path d="M24 4L6 14v12c0 11 8 18 18 20 10-2 18-9 18-20V14L24 4z" stroke-linejoin="round"/>
+            <path d="M16 24l5 5 11-11" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <h2 class="content-gate__title">You're in the right place.</h2>
+        <p class="content-gate__body">This is the most detailed breakdown of the new Green Key 2026–2031 criteria available anywhere — written by an auditor, not a marketing team.</p>
+        <p class="content-gate__body">The full guide covers every criteria change, stricter thresholds, new requirements, and a step-by-step action checklist to get your property ready before October 2026.</p>
+        <p class="content-gate__cta-text">Pop in your email and it's all yours. Nothing else required.</p>
+        <form class="content-gate__form" id="gate-form">
+          <div class="content-gate__field">
+            <input type="email" class="content-gate__input" id="gate-email" placeholder="Your email address" required autocomplete="email" aria-label="Email address">
+            <button type="submit" class="content-gate__btn" id="gate-submit">
+              <span class="gate-btn__text">Open the full guide</span>
+              <span class="gate-btn__loading" hidden>Unlocking...</span>
+            </button>
+          </div>
+          <p class="content-gate__fine">No account needed. No spam. Just the guide.</p>
+        </form>
+        <div class="content-gate__success" id="gate-success" hidden>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--green-key)" stroke-width="2.5"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>You're in. Unlocking the full guide now...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gated content wrapper -->
+  <div class="content-gate__locked" id="gated-content" style="display:none">
+
 <!-- CERTIFICATION PROCESS CHANGES -->
 <section class="section" id="certification-process">
   <div class="container">
@@ -5281,6 +5333,9 @@ Audit changes:
 
 </main>
 
+  </div><!-- /.content-gate__locked -->
+</div><!-- /.content-gate -->
+
 <!-- Disclaimer -->
 <section class="disclaimer-section">
   <div class="container">
@@ -5305,30 +5360,6 @@ Audit changes:
 </footer>
 
 <script src="./app.js" defer></script>
-
-<!-- Email Capture Banner -->
-<div class="capture-banner" id="capture-banner" aria-hidden="true">
-  <div class="capture-banner__inner">
-    <button class="capture-banner__close" id="capture-close" aria-label="Close">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/></svg>
-    </button>
-    <div class="capture-banner__content">
-      <p class="capture-banner__headline">Get ready for October 2026</p>
-      <p class="capture-banner__sub">Join hospitality professionals preparing for the new Green Key criteria. Receive practical implementation guidance, auditor insights, and updates — free.</p>
-    </div>
-    <form class="capture-banner__form" id="capture-form">
-      <div class="capture-banner__field-row">
-        <input type="email" class="capture-banner__input" id="capture-email" placeholder="Your work email" required autocomplete="email" aria-label="Email address">
-        <button type="submit" class="capture-banner__btn" id="capture-submit">Keep me updated</button>
-      </div>
-      <p class="capture-banner__fine">No spam. Unsubscribe anytime.</p>
-    </form>
-    <div class="capture-banner__success" id="capture-success" hidden>
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>You're in. We'll be in touch before October.</span>
-    </div>
-  </div>
-</div>
 
 <script src="./capture.js" defer></script>
 </body>
