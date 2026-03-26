@@ -363,6 +363,50 @@
   </div>
 </section>
 
+<!-- PODCAST SECTION -->
+<section class="section section--podcast" id="podcast">
+  <div class="container">
+    <div class="podcast-player reveal">
+      <div class="podcast-player__header">
+        <div class="podcast-player__icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 1a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke-linecap="round"/>
+            <line x1="12" y1="19" x2="12" y2="23" stroke-linecap="round"/>
+            <line x1="8" y1="23" x2="16" y2="23" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="podcast-player__info">
+          <h3 class="podcast-player__title">Listen: The New Green Key Standards Explained</h3>
+          <p class="podcast-player__meta">43 min &middot; AI-generated discussion covering the key changes, what they mean, and how to prepare</p>
+        </div>
+      </div>
+      <div class="podcast-player__controls">
+        <audio id="podcast-audio" preload="metadata">
+          <source src="./podcast.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <div class="podcast-custom-player" id="podcast-player">
+          <button class="podcast-play-btn" id="podcast-play" aria-label="Play podcast">
+            <svg class="podcast-icon--play" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg class="podcast-icon--pause" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" hidden><rect x="5" y="3" width="4" height="18" rx="1"/><rect x="15" y="3" width="4" height="18" rx="1"/></svg>
+          </button>
+          <div class="podcast-time" id="podcast-current">0:00</div>
+          <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+            <div class="podcast-progress-bar">
+              <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+              <div class="podcast-progress-handle" id="podcast-progress-handle"></div>
+            </div>
+          </div>
+          <div class="podcast-time" id="podcast-duration">43:15</div>
+          <button class="podcast-speed-btn" id="podcast-speed" aria-label="Playback speed">1x</button>
+        </div>
+      </div>
+      <p class="podcast-player__note">Generated via <a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer">NotebookLM</a> from the criteria documents analysed in this guide.</p>
+    </div>
+  </div>
+</section>
+
 <!-- EMAIL GATE -->
 <div class="content-gate" id="content-gate">
   <div class="content-gate__preview" id="gate-preview" aria-hidden="false">
@@ -5362,5 +5406,6 @@ Audit changes:
 <script src="./app.js" defer></script>
 
 <script src="./capture.js" defer></script>
+<script src="./podcast-player.js" defer></script>
 </body>
 </html>
